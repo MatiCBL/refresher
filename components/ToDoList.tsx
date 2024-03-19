@@ -1,15 +1,13 @@
-import { useState } from "react";
+import Todo from "./Todo";
 
-const NewTodoForm = () => {
-  const [state, updateState] = useState("");
-
+const ToDoList = ({ todos }) => {
   return (
     <div>
-      <form>
-        <input type="text" />
-      </form>
+      {todos.map((todo) => (
+        <Todo todo={todo} key={todo.id} />
+      ))}
     </div>
   );
 };
 
-export default NewTodoForm;
+export default ToDoList;

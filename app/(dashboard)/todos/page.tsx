@@ -1,5 +1,18 @@
-const SettingsPage = () => {
-    return <div>Settings page</div>
-}
+import ToDoList from "@/components/ToDoList";
+import db from "@/utils/db";
 
-export default SettingsPage
+const getData = async () => {
+  const todos = await db.todo.findMany({});
+  return todos;
+};
+
+const TodosPage = async () => {
+  const todos = await getData();
+  return (
+    <div>
+      <ToDoList todos={todos} />
+    </div>
+  );
+};
+
+export default TodosPage;
